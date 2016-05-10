@@ -4,7 +4,7 @@ module ApplicationCable
     identified_by :current_user
 
     def connect
-      self.current_user = cookies.signed[:username]
+      self.current_user = User.find_by(username: cookies.signed[:username])
     end
   end
 end
