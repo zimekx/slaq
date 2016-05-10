@@ -7,7 +7,8 @@ App.room = App.cable.subscriptions.create "RoomChannel",
 
   received: (data) ->
     console.log(data);
-    $('#room_' + data['message']['room_id'] + ' .messages').append("<p>" + data['message']['content'] + "</p>");
+    $('#room_' + data['message']['room_id'] + ' .messages').
+      append("<p><strong>" + data['message']['username'] + ":&nbsp</strong>" + data['message']['content'] + "</p>");
 
   speak: (message, roomId)->
     @perform 'speak', {message: message, room_id: roomId}

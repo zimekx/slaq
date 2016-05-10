@@ -244,7 +244,7 @@ Devise.setup do |config|
   # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
-  config.sign_out_via = :delete
+  config.sign_out_via = :get
 
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
@@ -273,4 +273,12 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  Warden::Manager.after_set_user do |user,auth,opts|
+    auth.cookies.signed[:username] = user.username
+  end
+
+  Warden::Manager.before_logout do |user,auth,opts|
+    auth.cookies.signed[:username] = nil
+  end
 end
