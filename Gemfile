@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'haml-rails'
 gem 'redis'
 gem 'rack-cors', require: 'rack/cors'
+gem 'devise'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
