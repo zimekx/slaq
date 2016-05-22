@@ -1,6 +1,7 @@
 %h1 Slaq
 - @rooms.each do |room|
   .room{id: "room_#{room.id}"}
+    %h2= room.name
     .messages
       = render partial: 'messages/message', collection: @messages[room.id], as: :message
 
