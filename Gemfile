@@ -14,6 +14,9 @@ gem 'haml-rails'
 gem 'redis'
 gem 'rack-cors', require: 'rack/cors'
 
+gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
