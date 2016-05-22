@@ -6,13 +6,15 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $('#messages').append("<p>#{data['message']['content']}</p>")
+    console.log(data);
+    $('#room_' + data['message']['room_id'] + ' .messages').append("<p>" + data['message']['content'] + "</p>");
 
-  speak: (message)->
-    @perform 'speak', message: message
+  speak: (message, roomId)->
+    @perform 'speak', {message: message, room_id: roomId}
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (e) ->
   if e.keyCode is 13
-    App.room.speak(e.target.value)
+    roomId = $(e.target).data('room-id')
+    App.room.speak(e.target.value, roomId)
     e.target.value = ''
     e.preventDefault()
