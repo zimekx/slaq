@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20160522163631) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "room_id"
-    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
     t.index ["room_id"], name: "index_messages_on_room_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "rooms", force: :cascade do |t|

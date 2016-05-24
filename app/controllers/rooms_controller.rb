@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_request!
 
   def show
     @messages = Message.limit(10).order(created_at: :desc).reverse.group_by(&:room_id)

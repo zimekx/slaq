@@ -14,5 +14,6 @@ module Slaq
         resource '*', headers: :any, methods: [:get, :post, :patch, :delete, :options]
       end
     end
+    config.autoload_paths << Rails.root.join('lib')
   end
 end
