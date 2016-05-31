@@ -13,4 +13,6 @@ permit_params :name
     end
     f.actions
   end
+
+  filter :name
 end
