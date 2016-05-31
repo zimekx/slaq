@@ -17,6 +17,8 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 
+gem 'non-stupid-digest-assets'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
