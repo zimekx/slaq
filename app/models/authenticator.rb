@@ -6,13 +6,10 @@ class Authenticator
 
   def authenticate_user
     if user_id_in_token?
-      begin
       return User.find(auth_token)
-      rescue ActiveRecord::RecordNotFound
-      end
     end
 
-    fail Exceptions::InvalidToken
+    fail ActiveRecord::RecordNotFound
   end
 
   private

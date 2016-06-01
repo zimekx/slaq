@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_request!
     @current_user = Authenticator.new(encryptor, request).authenticate_user
-  rescue Exceptions::InvalidToken
+  rescue ActiveRecord::RecordNotFound
     render json: { errors: ['Not Authenticated'] }, status: :unauthorized
   end
 
