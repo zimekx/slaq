@@ -11,6 +11,7 @@ class RoomChannel < ApplicationCable::Channel
   def speak(data)
     user_id = encryptor.decrypt(data['login']['token']).to_i
     user = User.find(user_id)
+    Rails.logger.info("Helo #{user_id}")
     Message.create!(
       content: data['message'],
       room_id: data['room_id'],

@@ -6,6 +6,4 @@
       = render partial: 'messages/message', collection: @messages[room.id], as: :message
 
     %form
-      %label
-        %strong #{@user.username}:&nbsp
       %input{type: 'text', data: {behavior: 'room_speaker', 'room-id' => room.id}}
