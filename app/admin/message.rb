@@ -4,6 +4,7 @@ ActiveAdmin.register Message do
 
   index do
     id_column
+    column :user
     column :content
     column :room_id
     column :created_at
@@ -11,4 +12,5 @@ ActiveAdmin.register Message do
   end
 
   filter :room
+  filter :user
 end
